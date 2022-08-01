@@ -1,12 +1,9 @@
 /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   reactStrictMode: true,
-//   swcMinify: true,
-// }
+const withPlugins = require("next-compose-plugins");
+const withPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
 
-// module.exports = nextConfig
-
-module.exports = {
+const nextConfig = {
   assetPrefix:
     process.env.NODE_ENV === "production"
       ? "https://emoone.github.io/moone-page"
@@ -16,3 +13,24 @@ module.exports = {
     path: "https://emoone.github.io/moone-page",
   },
 };
+
+module.exports = withPlugins(
+  [
+    [
+      withPWA,
+      {
+        pwa: {
+          dest: "public",
+          runtimeCaching,
+        },
+      },
+    ],
+  ],
+  {
+    reactStrictMode: true,
+    images: {
+      domains: ["d3in0pstm1ny80.akamaized.net"],
+    },
+  },
+  nextConfig
+);

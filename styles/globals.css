@@ -1,5 +1,16 @@
 :root {
   --secondary: #000000;
+  --background: #fff;
+  --text-primary: #000;
+  --text-secondary: royalblue;
+  --accent: purple;
+}
+
+[data-theme="dark"] {
+  --background: #000;
+  --text-primary: #fff;
+  --text-secondary: grey;
+  --accent: darkred;
 }
 
 html,
