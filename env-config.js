@@ -1,4 +1,6 @@
 module.exports = {
   "process.env.BACKEND_URL":
-    process.env.NODE_ENV === "production" ? "https://emoone.github.io" : "",
+    process.env.NODE_ENV === "production"
+      ? "https://emoone.github.io/moone-page"
+      : "",
 };
