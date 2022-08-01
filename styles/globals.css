@@ -1,3 +1,7 @@
+:root {
+  --secondary: #000000;
+}
+
 html,
 body {
   padding: 0;
