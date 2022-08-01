@@ -29,10 +29,7 @@ module.exports = withPlugins(
   {
     reactStrictMode: true,
     images: {
-      domains: [
-        "d3in0pstm1ny80.akamaized.net",
-        "https://emoone.github.io/moone-page",
-      ],
+      domains: ["d3in0pstm1ny80.akamaized.net", "emoone.github.io/moone-page"],
     },
   },
   nextConfig
