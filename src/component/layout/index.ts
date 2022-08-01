@@ -1,2 +1,5 @@
 import TheLayout from "./TheLayout";
-export { TheLayout };
+import { TheFooter } from "./footer";
+import { TheHeader } from "./header";
+
+export { TheLayout, TheFooter, TheHeader };

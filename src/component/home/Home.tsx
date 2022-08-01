@@ -1,4 +1,10 @@
+import { TheLayout } from "../layout";
+
 const Home = () => {
-  return <div>HomeComponent 수정된 버전</div>;
+  return (
+    <TheLayout>
+      <div>HomeComponent TheLayout으로 감싸기</div>
+    </TheLayout>
+  );
 };
 export default Home;
