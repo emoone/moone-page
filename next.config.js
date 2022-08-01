@@ -14,8 +14,6 @@ const nextConfig = {
   },
 };
 
-console.log("process.env is: ", process.env);
-
 module.exports = withPlugins(
   [
     [
