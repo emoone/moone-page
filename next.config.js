@@ -7,7 +7,7 @@ const nextConfig = {
   assetPrefix:
     process.env.NODE_ENV === "production"
       ? "https://emoone.github.io/moone-page/"
-      : "",
+      : "https://emoone.github.io/moone-page/",
   images: {
     loader: "imgix",
     path: "https://emoone.github.io/moone-page/",
