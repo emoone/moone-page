@@ -7,7 +7,7 @@ const nextConfig = {
   assetPrefix:
     process.env.NODE_ENV === "production"
       ? "https://emoone.github.io/moone-page/"
-      : "https://emoone.github.io/moone-page/",
+      : "http://localhost:4444",
   images: {
     loader: "imgix",
     path: "https://emoone.github.io/moone-page/",
@@ -16,15 +16,15 @@ const nextConfig = {
 
 module.exports = withPlugins(
   [
-    [
-      withPWA,
-      {
-        pwa: {
-          dest: "public",
-          runtimeCaching,
-        },
-      },
-    ],
+    // [
+    //   withPWA,
+    //   {
+    //     pwa: {
+    //       dest: "public",
+    //       runtimeCaching,
+    //     },
+    //   },
+    // ],
   ],
   {
     reactStrictMode: true,
