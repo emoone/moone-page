@@ -1,7 +1,7 @@
 {
   "theme_color": "#d2ccc7",
-  "background_color": "#ffffff",
-  "display": "browser",
+  "background_color": "#F675A8",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "name": "MooN's Page",
