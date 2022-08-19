@@ -17,9 +17,6 @@ const nextConfig = {
 
   pwa: {
     dest: "public",
-    disable: true,
-    register: true,
-    skipWaiting: true,
   },
 };
 
