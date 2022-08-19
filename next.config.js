@@ -1,5 +1,6 @@
 const withPWA = require("next-pwa");
 const prod = process.env.NODE_ENV === "production";
+const prodURL = "https://emoone.github.io/moone-page/";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,10 +9,10 @@ const nextConfig = {
   compiler: {
     removeConsole: prod ? true : false,
   },
-  assetPrefix: prod ? "https://emoone.github.io/moone-page" : "",
+  assetPrefix: prod ? prodURL : "",
   images: {
     loader: "imgix",
-    path: "https://emoone.github.io/moone-page",
+    path: prod ? "/moone-page" : "http://localhost:4444",
   },
 
   pwa: {
