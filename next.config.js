@@ -19,6 +19,7 @@ const nextConfig = {
     dest: "public",
     disable: prod ? false : true,
     register: true,
+    skipWaiting: true,
   },
 };
 

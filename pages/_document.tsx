@@ -79,7 +79,7 @@ const Document = () => {
         <meta name="theme-color" content="#ffffff"></meta>
         {/* favicon area */}
 
-        <link rel="/manifest" href="/manifest.json" />
+        <link rel="manifest" href="/manifest.json" />
       </Head>
 
       <body>
