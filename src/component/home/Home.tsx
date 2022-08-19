@@ -13,20 +13,20 @@ const Home = () => {
         <h1>TEST IMG</h1>
         adsfasf
         <div className="flex wd-[100%] jutify-center">
-          <div>
+          <div className="w-full">
             <Image
               src="/images/test.jpeg"
               blurDataURL={blurHashData5x7}
               placeholder="blur"
               layout="responsive"
-              width={1440}
-              height={960}
+              width="1440px"
+              height="960px"
               alt="img"
             />
           </div>
-          <div>
+          <div className="w-full">
             <Image
-              src="/images/test.jpeg"
+              src="/images/test02.jpeg"
               blurDataURL={blurHashData5x7}
               placeholder="blur"
               layout="responsive"
