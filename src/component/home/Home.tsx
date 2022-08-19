@@ -11,6 +11,7 @@ const Home = () => {
       <div>내용추가</div>
       <div>
         <h1>TEST IMG</h1>
+        adsfasf
         <div className="flex wd-[100%] jutify-center">
           <div>
             <Image
