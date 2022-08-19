@@ -33,7 +33,6 @@ const Home = () => {
               height={630}
               alt="img"
             />
-            <img src="/images/test02.jpeg" alt="" />
           </div>
         </div>
       </div>
