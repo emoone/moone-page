@@ -20,6 +20,7 @@ const Home = () => {
               layout="responsive"
               width={1440}
               height={960}
+              alt="img"
             />
           </div>
           <div>
@@ -30,6 +31,7 @@ const Home = () => {
               layout="responsive"
               width={1200}
               height={630}
+              alt="img"
             />
             <img src="/images/test02.jpeg" alt="" />
           </div>
