@@ -17,6 +17,7 @@
     "next-fonts": "^1.5.1",
     "next-optimized-images": "^2.6.2",
     "next-pwa": "^5.5.5",
+    "next-with-workbox": "^3.0.3",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^7.7.2",
     "react": "18.2.0",

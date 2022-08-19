@@ -1,36 +1,30 @@
-/** @type {import('next').NextConfig} */
-const withPlugins = require("next-compose-plugins");
 const withPWA = require("next-pwa");
-const runtimeCaching = require("next-pwa/cache");
+const prod = process.env.NODE_ENV === "production";
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  assetPrefix:
-    process.env.NODE_ENV === "production"
-      ? "https://emoone.github.io/moone-page/"
-      : "http://localhost:4444",
+  reactStrictMode: true,
+  swcMinify: true,
+  compiler: {
+    removeConsole: prod ? true : false,
+  },
+  assetPrefix: prod ? "https://emoone.github.io/moone-page" : "",
   images: {
     loader: "imgix",
-    path: "https://emoone.github.io/moone-page/",
+    path: "https://emoone.github.io/moone-page",
+  },
+
+  pwa: {
+    dest: "public",
+    disable: prod ? true : false,
+    register: true,
   },
 };
 
-module.exports = withPlugins(
-  [
-    // [
-    //   withPWA,
-    //   {
-    //     pwa: {
-    //       dest: "public",
-    //       runtimeCaching,
-    //     },
-    //   },
-    // ],
-  ],
-  {
-    reactStrictMode: true,
-    images: {
-      domains: ["/moone-page/"],
-    },
-  },
-  nextConfig
-);
+module.exports = () => {
+  const plugins = [withPWA];
+  const config = plugins.reduce((acc, next) => next(acc), {
+    ...nextConfig,
+  });
+  return config;
+};

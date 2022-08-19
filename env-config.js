@@ -1,6 +1,4 @@
+const prod = process.env.NODE_ENV === "production";
 module.exports = {
-  "process.env.BACKEND_URL":
-    process.env.NODE_ENV === "production"
-      ? "https://emoone.github.io/moone-page"
-      : "",
+  "process.env.BACKEND_URL": prod ? "https://emoone.github.io/moone-page" : "",
 };

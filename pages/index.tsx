@@ -3,6 +3,8 @@ import Head from "next/head";
 import Home from "../src/component/home";
 
 const Index: NextPage = () => {
+  console.log(process.env.NODE_ENV);
+
   return (
     <div className="container">
       <Head>
