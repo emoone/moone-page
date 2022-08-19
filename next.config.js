@@ -12,7 +12,9 @@ const nextConfig = {
   assetPrefix: prod ? prodURL : "",
   images: {
     loader: "imgix",
-    path: prod ? "/moone-page" : "http://localhost:4444",
+    path: prod
+      ? "https://emoone.github.io/moone-page/"
+      : "http://localhost:4444",
   },
 
   pwa: {
