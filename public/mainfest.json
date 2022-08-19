@@ -2,7 +2,7 @@
   "theme_color": "#d2ccc7",
   "background_color": "#F675A8",
   "display": "standalone",
-  "scope": "/?source=pwa",
+  "scope": "/",
   "start_url": "/",
   "name": "MooN's Page",
   "short_name": "MooN",

@@ -16,8 +16,8 @@ const nextConfig = {
   },
 
   pwa: {
-    dest: "/public/",
-    disable: prod ? false : true,
+    dest: "public",
+    disable: true,
     register: true,
     skipWaiting: true,
   },
