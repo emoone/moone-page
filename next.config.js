@@ -12,14 +12,12 @@ const nextConfig = {
   assetPrefix: prod ? prodURL : "",
   images: {
     loader: "imgix",
-    path: prod
-      ? "https://emoone.github.io/moone-page/"
-      : "http://localhost:4444",
+    path: prod ? prodURL : "http://localhost:4444",
   },
 
   pwa: {
     dest: "public",
-    disable: prod ? true : false,
+    disable: prod ? false : true,
     register: true,
   },
 };

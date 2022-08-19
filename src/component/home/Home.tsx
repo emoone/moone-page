@@ -19,8 +19,8 @@ const Home = () => {
               blurDataURL={blurHashData5x7}
               placeholder="blur"
               layout="responsive"
-              width="1440px"
-              height="960px"
+              width={1440}
+              height={960}
               alt="img"
             />
           </div>
