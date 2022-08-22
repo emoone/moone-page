@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+export const base64 =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAABQCAQAAAAJ44DwAAAAm0lEQVR42u3SMQEAAAgDIJfcjDbysIInZCDTBe8iFmIhFmKBWIiFWCAWYiEWiIVYiAViIRZigViIhVggFmIhFoiFWIgFYiEWYoFYiIVYIBZiIRaIhViIBWIhFmKBWIiFWCAWYiEWiIVYiAViIRZigViIhVggFmIhFoiFWIgFYiEWYoFYiIVYIBZiIRaIhViIBWIhFmKBWIiFWHAWlNlpUdLvC2gAAAAASUVORK5CYII=";
 const GnbMenu = () => {
   const menuRight = [
     { imgPath: "/images/svg/ico_head_search.svg", alt: "search" },
@@ -8,6 +10,7 @@ const GnbMenu = () => {
     { imgPath: "/images/svg/ico_giftbox.svg", alt: "giftbox" },
     { imgPath: "/images/svg/ico_head_menu.svg", alt: "menu" },
   ];
+
   return (
     <div
       id="gnbMenu"
@@ -19,11 +22,12 @@ const GnbMenu = () => {
           <a className="block">
             <Image
               src="/images/common/logo_toptoonplus_300x80.png"
-              blurDataURL="empty"
+              blurDataURL={base64}
+              placeholder="blur"
               quality="lazy"
-              layout="fixed"
-              width="120px"
-              height="40px"
+              layout="responsive"
+              width={300}
+              height={80}
             />
           </a>
         </Link>

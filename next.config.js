@@ -16,6 +16,17 @@ const nextConfig = {
     loader: "imgix",
     path: prod ? prodURL : "http://localhost:4444",
     domains: ["localhost"],
+    formats: ["image/avif", "image/webp"],
+    dangerouslyAllowSVG: true,
+    allowFutureImage: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    disableStaticImages: true, //정적 가져오기 비활성화
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: prodURL,
+      },
+    ],
   },
 };
 
