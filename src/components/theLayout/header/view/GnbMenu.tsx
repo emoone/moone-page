@@ -15,7 +15,7 @@ const GnbMenu = () => {
     >
       {/* 로고 영역 */}
       <div id="logo" className="ssm:mr-auto w-[120px] mr-[0]">
-        <Link href="/" passHref prefetch>
+        <Link href="/" passHref>
           <a className="block">
             <Image
               src="/images/common/logo_toptoonplus_300x80.png"
@@ -57,7 +57,7 @@ const GnbMenu = () => {
       <div id="menuRight" className="ml-[0] ssm:ml-auto">
         <ul className="flex align-center gap-[10px]">
           <li className="p-[10px] block md:hidden">
-            <Link href="/" passHref prefetch={false}>
+            <Link href="/" passHref>
               <a className="block">
                 <span className="icon_search">
                   <Image
@@ -72,7 +72,7 @@ const GnbMenu = () => {
             </Link>
           </li>
           <li>
-            <Link href="/" passHref prefetch={false}>
+            <Link href="/" passHref>
               <a className="p-[10px] block">
                 <span className="icon_charge">
                   <Image
@@ -87,7 +87,7 @@ const GnbMenu = () => {
             </Link>
           </li>
           <li className="relative">
-            <Link href="/" passHref prefetch={false}>
+            <Link href="/" passHref>
               <a className="p-[10px] block">
                 <span className="icon_gift">
                   <Image
@@ -104,7 +104,7 @@ const GnbMenu = () => {
             </Link>
           </li>
           <li>
-            <Link href="/" passHref prefetch={false}>
+            <Link href="/" passHref>
               <a className="p-[10px] block">
                 <span className="icon_service_menu">
                   <Image

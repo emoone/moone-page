@@ -15,11 +15,11 @@ const HomeComponent = () => {
         <h1>스크롤 테스트</h1>
         <hr /> */}
 
-        <p contentEditable="true">This is a paragraph</p>
+        <p>This is a paragraph</p>
 
         <button
           type="button"
-          className="bg-indigo-500 inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500"
+          className="bg-indigo-500 inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white"
           disabled
         >
           <svg

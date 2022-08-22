@@ -7,12 +7,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta name="msapplication-TileColor" content="#FF98BA" />
-          <meta name="theme-color" content="#FF98BA" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
+          <link rel="manifest" href="/manifest.json" />
 
           {/* favicon */}
           <link
@@ -98,8 +93,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
             rel="stylesheet"
           /> */}
-
-          <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
           <Main />

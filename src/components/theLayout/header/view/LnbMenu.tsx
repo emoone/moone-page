@@ -20,7 +20,7 @@ const LnbMenu = () => {
                   key={`lnb-item-${index}`}
                   className="active grow-[1] h-[inherit]"
                 >
-                  <Link href={item.path} passHref prefetch={false}>
+                  <Link href={item.path} passHref>
                     <a className="h-[inherit] bg-[#ddd]">{item.menu}</a>
                   </Link>
                 </li>
@@ -29,7 +29,7 @@ const LnbMenu = () => {
           </ul>
 
           <div className="btn_introduce hidden md:block">
-            <Link href="/newUserGuide" passHref prefetch={false}>
+            <Link href="/newUserGuide" passHref>
               <a className="flex gap-[4px]">
                 入門ガイド
                 <Image
