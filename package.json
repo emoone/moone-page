@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build-css": "tailwindcss build style.css -o css/style.css"
+    "build-css": "tailwindcss build style.css -o css/style.css",
+    "homepage": "https://emoone.github.io/moone-page/"
   },
   "dependencies": {
     "@emotion/react": "^11.8.1",
