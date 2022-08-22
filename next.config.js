@@ -1,4 +1,5 @@
 const withPWA = require("next-pwa");
+const widthPlugins = require("next-compose-plugins");
 const prod = process.env.NODE_ENV === "production";
 const prodURL = "https://emoone.github.io/moone-page/";
 
@@ -14,16 +15,19 @@ const nextConfig = {
     loader: "imgix",
     path: prod ? prodURL : "http://localhost:4444",
   },
-
-  pwa: {
-    dest: "public",
-  },
 };
 
-module.exports = () => {
-  const plugins = [withPWA];
-  const config = plugins.reduce((acc, next) => next(acc), {
-    ...nextConfig,
-  });
-  return config;
-};
+module.exports = widthPlugins(
+  [
+    [
+      withPWA,
+      {
+        pwa: {
+          dest: "public",
+          runtimeCaching,
+        },
+      },
+    ],
+  ],
+  nextConfig
+);
