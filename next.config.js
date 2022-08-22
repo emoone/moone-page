@@ -1,5 +1,6 @@
 const withPWA = require("next-pwa");
 const widthPlugins = require("next-compose-plugins");
+const runtimeCaching = require("next-pwa/cache");
 const prod = process.env.NODE_ENV === "production";
 const prodURL = "https://emoone.github.io/moone-page/";
 
