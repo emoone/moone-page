@@ -15,6 +15,7 @@ const nextConfig = {
   images: {
     loader: "imgix",
     path: prod ? prodURL : "http://localhost:4444",
+    domains: ["localhost"],
   },
 };
 
@@ -25,6 +26,10 @@ module.exports = widthPlugins(
       {
         pwa: {
           dest: "public",
+          swSrc: "./sw.js",
+          register: true,
+          reloadOnOnlines: true,
+          disable: prod ? false : true,
           runtimeCaching,
         },
       },
