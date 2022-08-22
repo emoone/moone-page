@@ -1,11 +1,11 @@
 module.exports = {
   purge: [
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./src/component/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
   ], // 파일 크기를 최소화하기 위함. 빌드할 때 여기에 설정된 파일에서 사용되지 않는 모든 클래스는 제거
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./src/component/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
 
   variants: {
