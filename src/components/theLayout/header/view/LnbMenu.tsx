@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { base64 } from "./GnbMenu";
 
 const LnbMenu = () => {
   const lnbArray = [
