@@ -6,21 +6,6 @@ import Head from "next/head";
 // import ModalContainer from "toptoon-modal/dist/";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     WebFont.load({
-  //       google: {
-  //         families: ["Noto Sans JP:400, 500, 700", "sans-serif"],
-  //       },
-
-  //       custom: {
-  //         families: ["Noto Sans JP:400, 500, 700", "sans-serif"],
-  //         urls: ["/assets/fonts/notoSansJp/notosans-jp-origin.css"],
-  //       },
-  //     });
-  //   }
-  // }, []);
-
   return (
     <>
       <Head>
