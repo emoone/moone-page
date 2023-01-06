@@ -1,9 +1,6 @@
-import "../styles/main.css";
-import type { AppProps } from "next/app";
-import WebFont from "webfontloader";
-import { useEffect } from "react";
-import Head from "next/head";
-// import ModalContainer from "toptoon-modal/dist/";
+import '../styles/main.css';
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
