@@ -1,4 +1,6 @@
-@import "./base.css";
+@import "./reset.css"; // 초기화 영역
+@import "./common.css"; // 재사용 영역
+@import "./animation.css"; // 애니 영역
 
 @tailwind base;
 @tailwind components;

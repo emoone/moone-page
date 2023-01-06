@@ -14,7 +14,7 @@ module.exports = {
 
   theme: {
     fontFamily: {
-      sans: ["Noto Sans JP", "Roboto", "sans-serif"],
+      sans: ["Roboto", "sans-serif"],
       serif: ["Merriweather", "serif"],
     },
 
@@ -27,9 +27,9 @@ module.exports = {
       },
 
       gridTemplateColumns: {
-        "repeat-fit": "repeat(6, minmax(10%, 1fr))",
-        "md:repeat-fit": "repeat(5, minmax(10%, 1fr))",
-        "lg:repeat-fit": "repeat(6, minmax(10%, 1fr))",
+        "repeat-fit": "repeat(6, minmax(0, 1fr))",
+        "md:repeat-fit": "repeat(5, minmax(0, 1fr))",
+        "lg:repeat-fit": "repeat(6, minmax(0, 1fr))",
         "auto-fit": "repeat(auto-fit, minmax(0, 1fr))",
         "auto-fill": "repeat(auto-fill, minmax(0, 1fr))",
       },
@@ -55,5 +55,13 @@ module.exports = {
       borderWidth: ["hover"],
     },
   },
-  plugins: [],
+  corePlugins: { preflight: true }, // tailwind reset css 활성/비활성 옵션
+  plugins: [
+    require('@savvywombat/tailwindcss-grid-areas'),
+    require('tailwind-scrollbar-hide'),
+    require('tailwindcss-textshadow'),
+    require('flowbite/plugin'),
+    require('@tailwindcss/line-clamp'),
+    require('tailwindcss-image-rendering')(), // image-rendering plugin
+  ],
 };
