@@ -1,7 +1,7 @@
 const TheFooterComponent = () => {
   return (
     <footer>
-      <h1>여기는 푸터</h1>
+      <h1>FOOTER</h1>
     </footer>
   );
 };

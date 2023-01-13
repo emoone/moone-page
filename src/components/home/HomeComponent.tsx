@@ -1,3 +1,5 @@
+import { Clip } from '../ui/icon';
+
 const HomeComponent = () => {
   return (
     <>
@@ -9,25 +11,23 @@ const HomeComponent = () => {
           //   openTestModal();
           // }}
         >
-          여기는 Home 메인 영역
+          <Clip />
+          HOME AREA
         </h1>
-        {/* <hr />
+        <hr />
         <h1>스크롤 테스트</h1>
-        <hr /> */}
-
-        <p>This is a paragraph</p>
-
-        <button
-          type="button"
-          className="bg-indigo-500 inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white"
-          disabled
-        >
-          <svg
-            className="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-            viewBox="0 0 24 24"
-          ></svg>
-          Processing...
-        </button>
+        <div className="parent bg-orange-800 w-full h-full overflow-y-auto relative max-w-[500px] max-h-[300px] flex flex-col">
+          <div className="children flex-[0_0_auto] w-[400px] text-[1rem] text-white flex items-center justify-center font-semibold h-[400px] bg-lime-500">
+            children1
+          </div>
+          <div className="children flex-[0_0_auto] w-[400px] text-[1rem] text-white flex items-center justify-center font-semibold h-[400px] bg-fuchsia-300 sticky top-0">
+            children2
+          </div>
+          <div className="children flex-[0_0_auto] w-[400px] text-[1rem] text-white flex items-center justify-center font-semibold h-[400px] bg-black sticky top-0">
+            children3
+          </div>
+        </div>
+        <hr />
       </section>
     </>
   );
