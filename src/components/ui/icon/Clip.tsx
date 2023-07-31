@@ -29,8 +29,7 @@ const Clip = (props: ClipProps) => {
       viewBox="0 0 20 20"
       width={width}
       height={height ? height : width}
-      xmlns="http://www.w3.org/2000/svg"
-    >
+      xmlns="http://www.w3.org/2000/svg">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
