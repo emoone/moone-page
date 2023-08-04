@@ -1,15 +1,16 @@
 module.exports = {
+  darkMode:['class'],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
     "./stories/**/*.{tsx}",
   ],
 
   variants: {
     gridTemplateColumns: ["responsive"],
   },
-
+  
   theme: {
     fontFamily: {
       sans: ["Roboto", "sans-serif"],

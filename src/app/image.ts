@@ -1,3 +1,8 @@
+/**
+ * nextimage api 대신 사용 옵션
+ * @param param0
+ * @returns
+ */
 export default function cloudinaryLoader({
   src,
   width,
