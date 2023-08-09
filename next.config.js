@@ -3,7 +3,7 @@
  */
 const nextConfig = {
   
-  // output: 'export', // github action 배포와 연관
+  output: 'export', // github action 배포와 연관
   experimental: {
     // unoptimized:true, // 최적화 하지 않음
     serverActions: true,
