@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 4444",
+    "dev": "cp env/.env.dev .env && next dev -p 4444",
+    "prod": "cp env/.env.prod .env && next dev -p 4444",
     "build": "next build",
     "start": "next start -p 4444",
     "lint": "next lint",
@@ -28,6 +29,7 @@
     "postcss-nesting": "^10.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sharp": "^0.32.4",
     "typescript": "5.1.6"
   },
   "devDependencies": {
