@@ -12,7 +12,7 @@ import { useTheme } from 'next-themes';
  * @returns
  */
 export default function SwitchThemeBtn() {
-  return <MUISwitch />;
+  return <MUISwitch defaultChecked />;
 }
 
 function MUISwitch(props: UseSwitchParameters) {

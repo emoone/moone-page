@@ -34,11 +34,6 @@ export default async function Home() {
     return res.json();
   });
 
-  if (session === null) {
-    throw new Error(`no data`);
-    return;
-  }
-
   return (
     <main className={'main'}>
       {/* <Suspense fallback={<Loading />}> */}
