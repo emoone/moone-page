@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { use } from 'react';
 
 const HomeComponent = dynamic(
   () => import('../components/home/HomeComponent'),
@@ -11,10 +10,7 @@ const HomeComponent = dynamic(
   },
 );
 
-// const HomeComponent = lazy(() => import('../components/home/HomeComponent'));
-const session = null;
-
-export default async function Home() {
+export default function Home() {
   return (
     <main className={'main'}>
       {/* <Suspense fallback={<Loading />}> */}

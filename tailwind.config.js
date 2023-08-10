@@ -2,9 +2,7 @@ module.exports = {
   darkMode:['class'],
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
-    "./stories/**/*.{tsx}",
   ],
 
   variants: {
@@ -60,7 +58,6 @@ module.exports = {
     require('tailwind-scrollbar-hide'),
     require('tailwindcss-textshadow'),
     require('flowbite/plugin'),
-    require('@tailwindcss/line-clamp'),
     require('tailwindcss-image-rendering')(), // image-rendering plugin
   ],
 };
