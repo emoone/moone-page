@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import { getPicsumPhotos } from '@/app/api/picsumPhoto/getPicsumPhotos';
 

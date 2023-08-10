@@ -17,7 +17,7 @@ const nextConfig = {
   experimental: {
     // unoptimized:true, // 최적화 하지 않음
     appDir: true,
-    // serverActions: true,
+    // serverActions: true, // 이거 아직 버그... 빌드 에러... 아우 짱나
     typedRoutes: false, // router 선언의 유효성 체크, 오타 등
   },
   images: {
