@@ -4,7 +4,7 @@ import { getPicsumPhotos } from '@/app/api/picsumPhoto/getPicsumPhotos';
 export default async function HomeComponent() {
   const imgLists = await getPicsumPhotos();
 
-  console.log('????', imgLists, process.env.NEXT_PUBLIC_ENVIRONMENT);
+  // console.log('????', imgLists, process.env.NEXT_PUBLIC_ENVIRONMENT);
 
   return (
     <section>
