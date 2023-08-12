@@ -13,12 +13,10 @@ const HomeComponent = dynamic(
 );
 
 export default async function Home() {
-  const imgLists = await getPicsumPhotos();
-
   return (
     <main className={'main'}>
       {/* <Suspense fallback={<Loading />}> */}
-      <HomeComponent imgLists={imgLists} />
+      <HomeComponent />
       {/* </Suspense> */}
     </main>
   );

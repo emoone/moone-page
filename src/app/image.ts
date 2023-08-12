@@ -1,5 +1,5 @@
 /**
- * nextimage api 대신 사용 옵션
+ * nextimage 사용을 위한 미들웨어? 처리
  * @param param0
  * @returns
  */

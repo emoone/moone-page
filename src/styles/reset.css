@@ -108,7 +108,8 @@
     display: block;
   }
 
-  body {
+  body,
+  header {
     @apply bg-gradient-to-r from-green-50 to-green-200 max-w-3xl mx-auto transition-all duration-150 text-black;
     @apply dark:bg-gradient-to-r dark:from-[#242933] dark:to-[#2A303C] dark:text-white;
     /* line-height: 1; */

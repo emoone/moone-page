@@ -30,6 +30,7 @@ export default function RootLayout({
 }) {
   const headerMenus = [
     { name: 'Home', link: '/', query: null },
+    { name: 'PicsumPhoto', link: '/picsum', query: null },
     { name: 'Dashbord', link: '/dashbord', query: null },
     { name: 'Post', link: '/dashbord/post', query: { slug: 'second' } },
   ];
@@ -46,13 +47,22 @@ export default function RootLayout({
       <Head />
       <body className={cn(`${popins.variable}`)}>
         <Providers>
-          <header className={cn('flex items-center')}>
+          <header
+            className={cn(
+              'headerCon flex h-[48px] justify-between sticky top-0 left-0',
+            )}>
             <SwitchThemeBtn />
             {/* <MUISwitch /> */}
-            <nav className={'flex gap-x-1'}>
+            <nav
+              className={
+                'flex h-full gap-x-1 items-center border-b-[1px] border-b-gray-400 border-solid'
+              }>
               {headerMenus.map((c, index) => {
                 return (
                   <Link
+                    className={cn('leading-[200%] ', {
+                      ['font-medium']: true,
+                    })}
                     href={{ pathname: c.link, query: c.query }}
                     key={`${c.name}-${index}`}>
                     {c.name}
