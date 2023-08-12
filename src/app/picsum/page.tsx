@@ -6,7 +6,6 @@ export default async function Picsum() {
 
   return (
     <main>
-      <h1>PicsumImgPageArea</h1>
       <ImgComponent imgLists={imgLists} />
     </main>
   );

@@ -10,6 +10,8 @@ export default function ImgComponent({
 }) {
   return (
     <section>
+      <h1>PicsumImgPageArea</h1>
+
       <ul>
         {imgLists.map((img, index) => {
           <h1>PicsumListArea</h1>;
