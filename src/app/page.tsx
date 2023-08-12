@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
+import { getPicsumPhotos } from './api/picsumPhoto/getPicsumPhotos';
 
 const HomeComponent = dynamic(
   () => import('../components/home/HomeComponent'),
@@ -11,11 +12,13 @@ const HomeComponent = dynamic(
   },
 );
 
-export default function Home() {
+export default async function Home() {
+  const imgLists = await getPicsumPhotos();
+
   return (
     <main className={'main'}>
       {/* <Suspense fallback={<Loading />}> */}
-      <HomeComponent />
+      <HomeComponent imgLists={imgLists} />
       {/* </Suspense> */}
     </main>
   );

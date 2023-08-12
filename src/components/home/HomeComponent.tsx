@@ -1,14 +1,22 @@
+'use client';
+
 import Image from 'next/image';
-import { getPicsumPhotos } from '@/app/api/picsumPhoto/getPicsumPhotos';
+import cn from 'clsx';
+import {
+  PhotosItemType,
+  getPicsumPhotos,
+} from '@/app/api/picsumPhoto/getPicsumPhotos';
 
-export default async function HomeComponent() {
-  const imgLists = await getPicsumPhotos();
-
+export default function HomeComponent({
+  imgLists,
+}: {
+  imgLists: PhotosItemType[];
+}) {
   // console.log('????', imgLists, process.env.NEXT_PUBLIC_ENVIRONMENT);
 
   return (
     <section>
-      HomeArea
+      HomeArea loadingTest
       {/* <Player /> */}
       <h1>TopicsListArea</h1>
       {/* <ul>
