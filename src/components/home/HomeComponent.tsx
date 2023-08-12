@@ -2,18 +2,13 @@
 
 import Image from 'next/image';
 import cn from 'clsx';
-import {
-  PhotosItemType,
-  getPicsumPhotos,
-} from '@/app/api/picsumPhoto/getPicsumPhotos';
+import { PhotosItemType } from '@/app/api/picsumPhoto/getPicsumPhotos';
 
 export default function HomeComponent({
   imgLists,
 }: {
   imgLists: PhotosItemType[];
 }) {
-  // console.log('????', imgLists, process.env.NEXT_PUBLIC_ENVIRONMENT);
-
   return (
     <section>
       HomeArea loadingTest
