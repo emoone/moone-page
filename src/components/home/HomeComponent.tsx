@@ -1,6 +1,6 @@
 'use client';
 
-export default function HomeComponent() {
+const HomeComponent = () => {
   return (
     <section>
       <h1> HomeArea</h1>
@@ -9,4 +9,6 @@ export default function HomeComponent() {
       <h2>과연!!!</h2>
     </section>
   );
-}
+};
+
+export default HomeComponent;
