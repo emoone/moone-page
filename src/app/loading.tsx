@@ -1,5 +1,5 @@
 import * as React from 'react';
-import cn from 'clsx';
+
 import LoadingComponent from '@/components/loading/Loading';
 
 /**
@@ -17,7 +17,7 @@ export default function Loading(
   return (
     <section
       id="loadingCon"
-      className="fiex w-screen h-screen flex items-center justify-center">
+      className="fixed top-0 left-0 flex items-center justify-center w-screen h-screen">
       <LoadingComponent />
     </section>
   );
