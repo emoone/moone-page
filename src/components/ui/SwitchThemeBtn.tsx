@@ -1,8 +1,8 @@
 'use client';
 
-import { FormControlLabel, Switch, createTheme, styled } from '@mui/material';
+import { FormControlLabel, Switch, styled } from '@mui/material';
 import { UseSwitchParameters, useSwitch } from '@mui/base';
-import { useEffect } from 'react';
+
 import { useTheme } from 'next-themes';
 
 /**
@@ -12,12 +12,7 @@ import { useTheme } from 'next-themes';
 
 export default function SwitchThemeBtn(props: UseSwitchParameters) {
   const { checked } = useSwitch(props);
-  const { systemTheme, theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    if (!systemTheme) return;
-    setTheme(systemTheme);
-  }, [systemTheme]);
+  const { theme, setTheme } = useTheme();
 
   const themeHandler = (newTheme: 'dark' | 'light') => {
     setTheme(newTheme);
