@@ -1,7 +1,9 @@
 'use client';
 
 import { FormControlLabel, Switch, styled } from '@mui/material';
+import Image, { unstable_getImgProps as getImgProps } from 'next/image';
 import { UseSwitchParameters, useSwitch } from '@mui/base';
+import { useCallback, useEffect } from 'react';
 
 import { useTheme } from 'next-themes';
 
@@ -14,26 +16,51 @@ export default function SwitchThemeBtn(props: UseSwitchParameters) {
   const { checked } = useSwitch(props);
   const { theme, setTheme } = useTheme();
 
-  const themeHandler = (newTheme: 'dark' | 'light') => {
-    setTheme(newTheme);
-  };
+  // -----------------
+  const common = { alt: 'Test', width: 80, height: 80 };
+
+  const {
+    props: { srcSet: dark },
+  } = getImgProps({ ...common, src: '/images/theme/icon_dark.png' });
+  const {
+    props: { srcSet: light, ...rest },
+  } = getImgProps({ ...common, src: '/images/theme/icon_light.png' });
+
+  // -----------------
+
+  const themeHandler = useCallback(() => {
+    if (theme === 'dark') {
+      setTheme('light');
+    } else {
+      setTheme('dark');
+    }
+  }, [theme]);
+
+  useEffect(() => {
+    console.log('checked', theme, dark, light);
+  }, [theme]);
 
   return (
-    <FormControlLabel
-      onChange={(event: React.SyntheticEvent, checked: boolean) => {
-        themeHandler(checked ? 'dark' : 'light');
-      }}
-      control={
-        <MaterialUISwitch
-          sx={{ m: 1 }}
-          defaultChecked
-          onClick={() => {
-            themeHandler(checked ? 'light' : 'dark');
-          }}
-        />
-      }
-      label=""
-    />
+    <picture onClick={themeHandler}>
+      <source media="(prefers-color-scheme: dark)" srcSet={dark} />
+      <source media="(prefers-color-scheme: light)" srcSet={light} />
+      <Image {...rest} />
+    </picture>
+    // <FormControlLabel
+    //   onChange={(event: React.SyntheticEvent, checked: boolean) => {
+    //     themeHandler(checked ? 'dark' : 'light');
+    //   }}
+    //   control={
+    //     <MaterialUISwitch
+    //       sx={{ m: 1 }}
+    //       defaultChecked
+    //       onClick={() => {
+    //         themeHandler(checked ? 'light' : 'dark');
+    //       }}
+    //     />
+    //   }
+    //   label=""
+    // />
   );
 }
 
