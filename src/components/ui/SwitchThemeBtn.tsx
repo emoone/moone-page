@@ -44,7 +44,7 @@ export default function SwitchThemeBtn(props: UseSwitchParameters) {
     <picture onClick={themeHandler}>
       <source media="(prefers-color-scheme: dark)" srcSet={dark} />
       <source media="(prefers-color-scheme: light)" srcSet={light} />
-      <Image {...rest} />
+      <Image {...rest} alt="" />
     </picture>
     // <FormControlLabel
     //   onChange={(event: React.SyntheticEvent, checked: boolean) => {
