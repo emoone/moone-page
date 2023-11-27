@@ -1,33 +1,40 @@
 'use client';
 
 import { FormControlLabel, Switch, styled } from '@mui/material';
-import Image, { unstable_getImgProps as getImgProps } from 'next/image';
-import { UseSwitchParameters, useSwitch } from '@mui/base';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useMemo } from 'react';
 
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
 /**
- * 테마(light, dark) 변경 Component
+ * ANCHOR: 테마(light, dark) 변경 Component
  * @returns
  */
-
-export default function SwitchThemeBtn(props: UseSwitchParameters) {
-  const { checked } = useSwitch(props);
+export default function SwitchThemeBtn() {
   const { theme, setTheme } = useTheme();
 
-  // -----------------
-  const common = { alt: 'Test', width: 80, height: 80 };
+  /**
+   * ANCHOR: 이미지 교체용
+   */
+  const imgOption = useMemo(() => {
+    if (theme === 'dark') {
+      return {
+        src: '/images/theme/icon_light.png',
+        width: 80,
+        height: 80,
+      };
+    } else {
+      return {
+        src: '/images/theme/icon_dark.png',
+        width: 80,
+        height: 80,
+      };
+    }
+  }, [theme]);
 
-  const {
-    props: { srcSet: dark },
-  } = getImgProps({ ...common, src: '/images/theme/icon_dark.png' });
-  const {
-    props: { srcSet: light, ...rest },
-  } = getImgProps({ ...common, src: '/images/theme/icon_light.png' });
-
-  // -----------------
-
+  /**
+   * ANCHOR: 테마 변경 함수
+   */
   const themeHandler = useCallback(() => {
     if (theme === 'dark') {
       setTheme('light');
@@ -36,31 +43,29 @@ export default function SwitchThemeBtn(props: UseSwitchParameters) {
     }
   }, [theme]);
 
-  useEffect(() => {
-    console.log('checked', theme, dark, light);
-  }, [theme]);
-
   return (
-    <picture onClick={themeHandler}>
-      <source media="(prefers-color-scheme: dark)" srcSet={dark} />
-      <source media="(prefers-color-scheme: light)" srcSet={light} />
-      <Image {...rest} alt="" />
-    </picture>
-    // <FormControlLabel
-    //   onChange={(event: React.SyntheticEvent, checked: boolean) => {
-    //     themeHandler(checked ? 'dark' : 'light');
-    //   }}
-    //   control={
-    //     <MaterialUISwitch
-    //       sx={{ m: 1 }}
-    //       defaultChecked
-    //       onClick={() => {
-    //         themeHandler(checked ? 'light' : 'dark');
-    //       }}
-    //     />
-    //   }
-    //   label=""
-    // />
+    // <div>
+    //   <Image
+    //     onClick={themeHandler}
+    //     {...imgOption}
+    //     alt="Test"
+    //     className="w-full h-full"
+    //   />
+    // </div>
+
+    <FormControlLabel
+      onChange={(event: React.SyntheticEvent, checked: boolean) => {}}
+      control={
+        <MaterialUISwitch
+          sx={{ m: 1 }}
+          checked={theme === 'dark'}
+          onClick={() => {
+            themeHandler();
+          }}
+        />
+      }
+      label=""
+    />
   );
 }
 

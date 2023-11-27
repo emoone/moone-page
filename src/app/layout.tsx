@@ -6,8 +6,12 @@ import Head from './head';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SwitchThemeBtn from '@/components/ui/SwitchThemeBtn';
-import ThemeProviders from './_providers/ThemeProviders';
 import cn from 'clsx';
+import dynamic from 'next/dynamic';
+
+const ThemeProviders = dynamic(() => import('./_providers/ThemeProviders'), {
+  ssr: false,
+});
 
 const popins = Poppins({
   weight: ['100', '300', '400', '500', '700', '900'],
@@ -48,7 +52,7 @@ export default function RootLayout({
    * 실제로 DOM에는 속성이 정상추가되는걸로 확인됨.
    */
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="en" suppressHydrationWarning={false}>
       <Head />
       <body className={cn(`${popins.variable}`)}>
         <ThemeProviders>
@@ -57,7 +61,6 @@ export default function RootLayout({
               'headerCon flex h-[48px] justify-between sticky top-0 left-0',
             )}>
             <SwitchThemeBtn />
-            {/* <MUISwitch /> */}
             <nav
               className={
                 'flex h-full gap-x-1 items-center border-b-[1px] border-b-gray-400 border-solid'

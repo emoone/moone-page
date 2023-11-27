@@ -1,0 +1,18 @@
+:root {
+  --bg-primary: #fff;
+  --text-primary: #000;
+  --text-active: blue;
+  /* --bg-primary: ;         //- 기본배경 컬러  */
+  /* --footer-bg-primary: ;  //- 푸터 기본배경 컬러  */
+  /* --text-primary: ;       //- 기본 텍스트 컬러  */
+  /* --text-poin: ;          //- 강조 텍스트 컬러  */
+  /* --text-error: ;         //- 에러 텍스트 컬러  */
+  /* --text-sub: ;           //- 서브 텍스트 컬러  */
+  /* --text-info: ;          //- 정보 텍스트 컬러  */
+}
+
+:root.dark {
+  --bg-primary: #121212;
+  --text-primary: #ddd;
+  --text-active: purple;
+}
