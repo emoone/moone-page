@@ -37,6 +37,7 @@ export default function RootLayout({
     { name: 'PicsumPhoto', link: '/picsum', query: null },
     { name: 'Dashbord', link: '/dashbord', query: null },
     { name: 'Post', link: '/dashbord/post', query: { slug: 'second' } },
+    { name: 'login', link: '/auth/login' },
   ];
 
   /**
