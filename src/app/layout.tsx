@@ -5,13 +5,17 @@ import { Inter, Poppins } from 'next/font/google';
 import Head from './head';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { SessionProvider } from 'next-auth/react';
 import SwitchThemeBtn from '@/components/ui/SwitchThemeBtn';
 import cn from 'clsx';
 import dynamic from 'next/dynamic';
 
-const ThemeProviders = dynamic(() => import('./_providers/ThemeProviders'), {
-  ssr: false,
-});
+const ProviderContainer = dynamic(
+  () => import('./_provider/ProviderContainer'),
+  {
+    ssr: false,
+  },
+);
 
 const popins = Poppins({
   weight: ['100', '300', '400', '500', '700', '900'],
@@ -56,7 +60,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={false}>
       <Head />
       <body className={cn(`${popins.variable}`)}>
-        <ThemeProviders>
+        <ProviderContainer>
           <header
             className={cn(
               'headerCon flex h-[48px] justify-between sticky top-0 left-0',
@@ -81,7 +85,7 @@ export default function RootLayout({
             </nav>
           </header>
           {children}
-        </ThemeProviders>
+        </ProviderContainer>
       </body>
     </html>
   );

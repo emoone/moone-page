@@ -8,7 +8,7 @@ const isDev = process.env.NEXT_PUBLIC_ENVIRONMENT === 'DEV';
 
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export', // github action 배포와 연관
+  // output: 'export', // github action 배포와 연관
   // assetPrefix: isDev ? 'https://emoone.github.io/moone-page/' : undefined,
   devIndicators: {
     buildActivity: true,
@@ -32,9 +32,9 @@ const nextConfig = {
     loader: 'custom',
     minimumCacheTTL: 60, // 이미지 캐시만료, 초단위
     loaderFile: './src/app/image.ts', // nextimage 대신 cloud 사용 희망시
-    domains:['unsplash.com','picsum.photos'], // 허용 도메인 리스트
+    domains: ['unsplash.com', 'picsum.photos'], // 허용 도메인 리스트
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840], // 사용자 예상 단말기 사이즈
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
