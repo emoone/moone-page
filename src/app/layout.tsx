@@ -61,30 +61,32 @@ export default function RootLayout({
       <Head />
       <body className={cn(`${popins.variable}`)}>
         <ProviderContainer>
-          <header
-            className={cn(
-              'headerCon flex h-[48px] justify-between sticky top-0 left-0',
-            )}>
-            <SwitchThemeBtn />
-            <nav
-              className={
-                'flex h-full gap-x-1 items-center border-b-[1px] border-b-gray-400 border-solid'
-              }>
-              {headerMenus.map((c, index) => {
-                return (
-                  <Link
-                    className={cn('leading-[200%]', {
-                      ['font-medium']: true,
-                    })}
-                    href={{ pathname: c.link, query: c.query }}
-                    key={`${c.name}-${index}`}>
-                    {c.name}
-                  </Link>
-                );
-              })}
-            </nav>
-          </header>
-          {children}
+          <div className="container max-w-3xl mx-auto">
+            <header
+              className={cn(
+                'headerCon flex h-[48px] justify-between sticky top-0 left-0',
+              )}>
+              <SwitchThemeBtn />
+              <nav
+                className={
+                  'flex h-full gap-x-1 items-center border-b-[1px] border-b-gray-400 border-solid'
+                }>
+                {headerMenus.map((c, index) => {
+                  return (
+                    <Link
+                      className={cn('leading-[200%]', {
+                        ['font-medium']: true,
+                      })}
+                      href={{ pathname: c.link, query: c.query }}
+                      key={`${c.name}-${index}`}>
+                      {c.name}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </header>
+            {children}
+          </div>
         </ProviderContainer>
       </body>
     </html>

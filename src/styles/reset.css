@@ -89,7 +89,6 @@
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -108,11 +107,11 @@
   }
 
   body,
-  header {
-    @apply bg-gradient-to-r from-green-50 to-green-200 max-w-3xl mx-auto transition-all duration-150 text-black;
-    @apply dark:from-[#242933] dark:to-[#2A303C] dark:text-white;
-    /* line-height: 1; */
+  html {
+    @apply transition-all duration-150 text-textPrimary w-full h-full;
+    @apply dark:from-slate-500 dark:to-slate-800 bg-gradient-to-r from-green-50 to-green-200;
   }
+
   ol,
   ul {
     list-style: none;
