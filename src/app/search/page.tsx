@@ -1,3 +1,3 @@
 export default async function name() {
-  return <main></main>;
+  return <main>Search Page</main>;
 }

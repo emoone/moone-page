@@ -6,7 +6,7 @@ type ErrorUIProps = {
 };
 
 export default function ErrorUI({ error, reset }: ErrorUIProps) {
-  console.log({ error, reset });
+  console.log('ErrorUi', { error, reset });
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">

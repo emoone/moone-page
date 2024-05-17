@@ -21,7 +21,7 @@ export async function getPicsumPhotos() {
   const photos = (await res.json()) as PhotosItemType[];
 
   if (photos.length === 0) {
-    // 에러 핸들링, next 자체 제공인데 뭔지 모름
+    // 에러 핸들링, next 자체 제공인데 status code 404 던져줌
     notFound();
   }
 

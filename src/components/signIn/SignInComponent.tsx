@@ -2,6 +2,7 @@
 
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import cn from 'clsx';
 import name from '@/app/search/page';
 import { useSession } from 'next-auth/react';
 
@@ -41,7 +42,7 @@ const SignInComponent = () => {
   });
 
   const onSubmit: SubmitHandler<LoginType> = data => {
-    console.log('data', data, 'session', session, status);
+    console.log('data', data, 'session', session, 'status', status);
     update({ name: data.email, password: data.password });
   };
 
@@ -49,20 +50,35 @@ const SignInComponent = () => {
     <section id="loginCon">
       <h1>로그인 페이지</h1>
       <p>signed in as {session?.user?.name}</p>
-      <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <div className="emailCon">
-          <label htmlFor="emailForm">Email: </label>
-          <input {...register('email')} id="emailForm" placeholder="email" />
-        </div>
-        <div className="pwCon">
-          <label htmlFor="pwForm">password: </label>
+      <form
+        action=""
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col gap-y-[20px]">
+        <div className="emailCon flex flex-col gap-y-[5px]">
+          <label className="font-medium" htmlFor="emailForm">
+            Email:{' '}
+          </label>
           <input
+            className={cn('p-[5px_10px] text-base block')}
+            {...register('email')}
+            id="emailForm"
+            placeholder="email"
+          />
+        </div>
+
+        <div className="pwCon flex flex-col gap-y-[5px]">
+          <label className="font-medium" htmlFor="pwForm">
+            password:{' '}
+          </label>
+          <input
+            className={cn('p-[5px_10px] text-base block')}
             {...register('password')}
             name="pwForm"
             id="pwForm"
             placeholder="password"
           />
         </div>
+
         <input
           type="submit"
           value="Submit"
