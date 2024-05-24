@@ -47,7 +47,7 @@ const SignInComponent = () => {
 
   return (
     <section id="loginCon">
-      <h1>로그인 페이지</h1>
+      <h1>회원가입 페이지</h1>
       <p>signed in as {session?.user?.name}</p>
       <form
         action=""

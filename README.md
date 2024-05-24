@@ -12,4 +12,10 @@
 
 <img  src="https://img.shields.io/badge/TypeScript-3178c6?logo=TypeScript&style=for-the-badge&logoColor=black"/>
 
+<img  src="https://img.shields.io/badge/Prisma-2D3748?logo=Prisma&style=for-the-badge&logoColor=white"/>
+
+<img  src="https://img.shields.io/badge/nextAuth-3178c6?logo=nextAuth&style=for-the-badge&logoColor=black"/>
+
+https://simpleicons.org/?q=java
+
 </div>
