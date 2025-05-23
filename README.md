@@ -16,6 +16,9 @@
 
 <img  src="https://img.shields.io/badge/nextAuth-3178c6?logo=nextAuth&style=for-the-badge&logoColor=black"/>
 
+<img alt="nodejs" src="https://img.shields.io/badge/nodejs" />
+
+
 https://simpleicons.org/?q=java
 
 </div>

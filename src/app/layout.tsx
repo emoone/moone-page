@@ -1,14 +1,10 @@
 import '../styles/main.css';
 
-import { Inter, Poppins } from 'next/font/google';
-
-import Head from './head';
-import Link from 'next/link';
-import type { Metadata } from 'next';
-import { SessionProvider } from 'next-auth/react';
-import SwitchThemeBtn from '@/components/ui/SwitchThemeBtn';
 import cn from 'clsx';
+import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import Head from './head';
 
 const ProviderContainer = dynamic(
   () => import('./_provider/ProviderContainer'),
@@ -16,13 +12,6 @@ const ProviderContainer = dynamic(
     ssr: false,
   },
 );
-
-const popins = Poppins({
-  weight: ['100', '300', '400', '500', '700', '900'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-popins',
-});
 
 export const metadata: Metadata = {
   title: 'Moon"s Blog',
@@ -59,18 +48,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={false}>
       <Head />
-      <body className={cn(`${popins.variable}`)}>
+      <body>
         <ProviderContainer>
           <div className="container max-w-3xl mx-auto">
             <header
               className={cn(
                 'headerCon flex h-[48px] justify-between sticky top-0 left-0',
-              )}>
-              <SwitchThemeBtn />
+              )}
+            >
               <nav
                 className={
                   'flex h-full gap-x-1 items-center border-b-[1px] border-b-gray-400 border-solid'
-                }>
+                }
+              >
                 {headerMenus.map((c, index) => {
                   return (
                     <Link
@@ -78,7 +68,8 @@ export default function RootLayout({
                         ['font-medium']: true,
                       })}
                       href={{ pathname: c.link, query: c.query }}
-                      key={`${c.name}-${index}`}>
+                      key={`${c.name}-${index}`}
+                    >
                       {c.name}
                     </Link>
                   );

@@ -7,8 +7,8 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const isDev = process.env.NEXT_PUBLIC_ENVIRONMENT === 'DEV';
 
 const nextConfig = {
-  reactStrictMode: true,
-  // output: 'export', // github action 배포와 연관
+  // reactStrictMode: true,
+  output: 'export', // github action 배포와 연관
   // assetPrefix: isDev ? 'https://emoone.github.io/moone-page/' : undefined,
   devIndicators: {
     buildActivity: true,

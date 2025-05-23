@@ -3,7 +3,6 @@
 import { FormControlLabel, Switch, styled } from '@mui/material';
 import { useCallback, useMemo } from 'react';
 
-import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
 /**

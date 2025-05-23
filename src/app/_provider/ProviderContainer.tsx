@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react';
-import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
+import React from 'react';
 
 /**
  * 해당 컨테이너에 모든 provider들의 모음
@@ -12,14 +11,13 @@ import { ThemeProvider } from 'next-themes';
  */
 const ProviderContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <SessionProvider>
-      <ThemeProvider
-        enableSystem={false} // 시스템 테마 활성화
-        enableColorScheme={false} // color-scheme 활성화
-        attribute="class">
-        {children}
-      </ThemeProvider>
-    </SessionProvider>
+    <ThemeProvider
+      enableSystem={false} // 시스템 테마 활성화
+      enableColorScheme={false} // color-scheme 활성화
+      attribute="class"
+    >
+      {children}
+    </ThemeProvider>
   );
 };
 

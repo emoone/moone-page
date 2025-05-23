@@ -54,7 +54,6 @@ module.exports = {
     require('@savvywombat/tailwindcss-grid-areas'),
     require('tailwind-scrollbar-hide'),
     require('tailwindcss-textshadow'),
-    require('flowbite/plugin'),
     require('tailwindcss-image-rendering')(), // image-rendering plugin
   ],
 };
