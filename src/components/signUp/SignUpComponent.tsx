@@ -3,9 +3,9 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import cn from 'clsx';
-import { useSession } from 'next-auth/react';
+import { useCallback } from 'react';
 
-interface LoginType {
+interface FormType {
   email: string;
   password: string;
 }
@@ -25,57 +25,78 @@ interface LoginType {
  *  - session:
  *
  */
-const SignInComponent = () => {
+const SignUpComponent = () => {
+  // const { data: session, status, update } = useSession();
+
   const {
-    data: session,
-    status,
-    update,
-  } = useSession({
-    required: true,
-    onUnauthenticated() {
-      //  The user is not authenticated, handle it here.
-    },
-  });
-  const { register, handleSubmit } = useForm<LoginType>({
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormType>({
     defaultValues: { email: '', password: '' },
   });
 
-  const onSubmit: SubmitHandler<LoginType> = data => {
-    console.log('data', data, 'session', session, 'status', status);
-    update({ name: data.email, password: data.password });
-  };
+  const passwordWatch = watch('password');
+
+  const onSubmit: SubmitHandler<FormType> = useCallback(async data => {
+    // console.log('data', data, 'session', session, 'status', status);
+    // update({ name: data.email, password: data.password });
+
+    try {
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+    } catch (error) {
+      console.error('error', error);
+      window.alert(JSON.stringify(error || '회원가입 실패'));
+    }
+  }, []);
 
   return (
     <section id="loginCon">
       <h1>회원가입 페이지</h1>
-      <p>signed in as {session?.user?.name}</p>
       <form
         action=""
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-y-[20px]">
+        className="flex flex-col gap-y-[20px]"
+      >
         <div className="emailCon flex flex-col gap-y-[5px]">
-          <label className="font-medium" htmlFor="emailForm">
+          <label className="font-medium" htmlFor="Email">
             Email:{' '}
           </label>
           <input
             className={cn('p-[5px_10px] text-base block')}
-            {...register('email')}
-            id="emailForm"
+            {...register('email', {
+              required: '이메일을 입력해주세요',
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: '이메일 형식이 아닙니다.',
+              },
+            })}
+            id="Email"
             placeholder="email"
           />
+          {errors.email?.message && <p>{errors.email.message}</p>}
         </div>
 
         <div className="pwCon flex flex-col gap-y-[5px]">
-          <label className="font-medium" htmlFor="pwForm">
+          <label className="font-medium" htmlFor="password">
             password:{' '}
           </label>
           <input
+            type="password"
             className={cn('p-[5px_10px] text-base block')}
-            {...register('password')}
-            name="pwForm"
-            id="pwForm"
+            {...register('password', { required: '비밀번호 필수 입니다.' })}
+            name="password"
+            id="password"
             placeholder="password"
           />
+          {errors.password?.message && <p>{errors.password.message}</p>}
         </div>
 
         <input
@@ -87,4 +108,4 @@ const SignInComponent = () => {
     </section>
   );
 };
-export default SignInComponent;
+export default SignUpComponent;

@@ -1,8 +1,8 @@
 'use client';
 
-import { FormControlLabel, Switch, styled } from '@mui/material';
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
+import cn from 'clsx';
 import { useTheme } from 'next-themes';
 
 /**
@@ -12,106 +12,59 @@ import { useTheme } from 'next-themes';
  */
 export default function SwitchThemeBtn() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  /**
-   * ANCHOR: 이미지 교체용
-   */
-  const imgOption = useMemo(() => {
-    if (theme === 'dark') {
-      return {
-        src: '/images/theme/icon_light.png',
-        width: 80,
-        height: 80,
-      };
-    } else {
-      return {
-        src: '/images/theme/icon_dark.png',
-        width: 80,
-        height: 80,
-      };
-    }
-  }, [theme]);
+  // 클라이언트 사이드 마운트 후에만 테마 버튼 표시
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  /**
-   * ANCHOR: 테마 변경 함수
-   */
   const themeHandler = useCallback(() => {
-    if (theme === 'dark') {
-      setTheme('light');
-    } else {
-      setTheme('dark');
-    }
-  }, [theme]);
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  }, [theme, setTheme]);
+
+  // 마운트되기 전까지는 플레이스홀더 버튼 표시
+  if (!mounted) return null;
 
   return (
-    // <div>
-    //   <Image
-    //     onClick={themeHandler}
-    //     {...imgOption}
-    //     alt="Test"
-    //     className="w-full h-full"
-    //   />
-    // </div>
+    <button
+      onClick={themeHandler}
+      aria-label="Toggle Theme"
+      className={`
+        w-8 h-8 rounded-full
+        flex items-center justify-center
+        bg-transparent dark:bg-gray-700
+        transition-colors duration-300
+        relative overflow-hidden
+        shadow-md hover:shadow-lg
+         ring-black/10 dark:ring-white/10
+      `}
+    >
+      {/* 🌙 Dark Icon */}
+      <span
+        className={cn(
+          'absolute top-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out transform',
+          {
+            'opacity-100 scale-100 rotate-0 z-10': theme === 'light',
+            'opacity-0 scale-0 rotate-180 z-0': theme === 'dark',
+          },
+        )}
+      >
+        🌙
+      </span>
 
-    <FormControlLabel
-      onChange={(event: React.SyntheticEvent, checked: boolean) => {}}
-      control={
-        <MaterialUISwitch
-          sx={{ m: 1 }}
-          checked={theme === 'dark'}
-          onClick={() => {
-            themeHandler();
-          }}
-        />
-      }
-      label=""
-    />
+      {/* ☀️ Light Icon */}
+      <span
+        className={cn(
+          'absolute top-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out transform',
+          {
+            'opacity-100 scale-100 rotate-0 z-10': theme === 'dark',
+            'opacity-0 scale-0 rotate-180 z-0': theme === 'light',
+          },
+        )}
+      >
+        ☀️
+      </span>
+    </button>
   );
 }
-
-const MaterialUISwitch = styled(Switch)(({ theme }) => ({
-  width: 62,
-  height: 34,
-  padding: 7,
-  '& .MuiSwitch-switchBase': {
-    margin: 1,
-    padding: 0,
-    transform: 'translateX(6px)',
-    '&.Mui-checked': {
-      color: '#fff',
-      transform: 'translateX(22px)',
-      '& .MuiSwitch-thumb:before': {
-        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
-          '#fff',
-        )}" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.6 5.8 5.8 0 006.6 6.6z"/></svg>')`,
-      },
-      '& + .MuiSwitch-track': {
-        opacity: 1,
-        backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
-      },
-    },
-  },
-  '& .MuiSwitch-thumb': {
-    backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
-    width: 32,
-    height: 32,
-    '&:before': {
-      content: "''",
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      left: 0,
-      top: 0,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
-        '#fff',
-      )}" d="M9.305 1.667V3.75h1.389V1.667h-1.39zm-4.707 1.95l-.982.982L5.09 6.072l.982-.982-1.473-1.473zm10.802 0L13.927 5.09l.982.982 1.473-1.473-.982-.982zM10 5.139a4.872 4.872 0 00-4.862 4.86A4.872 4.872 0 0010 14.862 4.872 4.872 0 0014.86 10 4.872 4.872 0 0010 5.139zm0 1.389A3.462 3.462 0 0113.471 10a3.462 3.462 0 01-3.473 3.472A3.462 3.462 0 016.527 10 3.462 3.462 0 0110 6.528zM1.665 9.305v1.39h2.083v-1.39H1.666zm14.583 0v1.39h2.084v-1.39h-2.084zM5.09 13.928L3.616 15.4l.982.982 1.473-1.473-.982-.982zm9.82 0l-.982.982 1.473 1.473.982-.982-1.473-1.473zM9.305 16.25v2.083h1.389V16.25h-1.39z"/></svg>')`,
-    },
-  },
-  '& .MuiSwitch-track': {
-    opacity: 1,
-    backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
-    borderRadius: 20 / 2,
-  },
-}));

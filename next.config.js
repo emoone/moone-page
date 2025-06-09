@@ -8,7 +8,7 @@ const isDev = process.env.NEXT_PUBLIC_ENVIRONMENT === 'DEV';
 
 const nextConfig = {
   // reactStrictMode: true,
-  output: 'export', // github action 배포와 연관
+  output: isDev ? undefined : 'standalone', // 개발 환경에서는 standalone 비활성화
   // assetPrefix: isDev ? 'https://emoone.github.io/moone-page/' : undefined,
   devIndicators: {
     buildActivity: true,

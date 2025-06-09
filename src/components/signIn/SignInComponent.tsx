@@ -3,9 +3,10 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import cn from 'clsx';
-import { useSession } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
+import { useCallback } from 'react';
 
-interface LoginType {
+interface FormType {
   email: string;
   password: string;
 }
@@ -23,27 +24,43 @@ interface LoginType {
  * }
  * 2. NextAuth 모듈: 여기에 다양한 모듈 아이템이 있는듯
  *  - session:
- *
  */
 const SignInComponent = () => {
-  const {
-    data: session,
-    status,
-    update,
-  } = useSession({
-    required: true,
-    onUnauthenticated() {
-      //  The user is not authenticated, handle it here.
-    },
-  });
-  const { register, handleSubmit } = useForm<LoginType>({
+  const { data: session, status, update } = useSession();
+
+  const { register, handleSubmit } = useForm<FormType>({
     defaultValues: { email: '', password: '' },
   });
 
-  const onSubmit: SubmitHandler<LoginType> = data => {
-    console.log('data', data, 'session', session, 'status', status);
-    update({ name: data.email, password: data.password });
-  };
+  console.log('dddd', status);
+
+  const onSubmit: SubmitHandler<FormType> = useCallback(async data => {
+    // console.log('data', data, 'session', session, 'status', status);
+    // update({ name: data.email, password: data.password });
+
+    const res = await signIn('credentials', {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+      callbackUrl: `/`,
+    });
+
+    console.log('submit', data);
+    console.log('login', res);
+    if (res?.ok) {
+      console.log('login', res);
+    } else {
+      console.log('error', res);
+      window.alert(JSON.stringify(res?.error));
+    }
+  }, []);
+
+  if (status === 'loading') {
+    return <p>로딩중...</p>;
+  }
+
+  if (status === 'authenticated') {
+  }
 
   return (
     <section id="loginCon">
@@ -52,15 +69,16 @@ const SignInComponent = () => {
       <form
         action=""
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-y-[20px]">
+        className="flex flex-col gap-y-[20px]"
+      >
         <div className="emailCon flex flex-col gap-y-[5px]">
-          <label className="font-medium" htmlFor="emailForm">
+          <label className="font-medium" htmlFor="Email">
             Email:{' '}
           </label>
           <input
             className={cn('p-[5px_10px] text-base block')}
             {...register('email')}
-            id="emailForm"
+            id="Email"
             placeholder="email"
           />
         </div>
@@ -70,10 +88,11 @@ const SignInComponent = () => {
             password:{' '}
           </label>
           <input
+            type="password"
             className={cn('p-[5px_10px] text-base block')}
             {...register('password')}
-            name="pwForm"
-            id="pwForm"
+            name="password"
+            id="password"
             placeholder="password"
           />
         </div>

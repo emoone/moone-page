@@ -1,5 +1,6 @@
 'use client';
 
+import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
 import React from 'react';
 
@@ -16,7 +17,7 @@ const ProviderContainer = ({ children }: { children: React.ReactNode }) => {
       enableColorScheme={false} // color-scheme 활성화
       attribute="class"
     >
-      {children}
+      <SessionProvider>{children}</SessionProvider>
     </ThemeProvider>
   );
 };

@@ -11,7 +11,8 @@
     "build-css": "tailwindcss build style.css -o css/style.css",
     "homepage": "https://emoone.github.io/moone-page/",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "secret": "node -e \"console.log(require('crypto').randomBytes(32).toString('hex'))\""
   },
   "dependencies": {
     "@sentry/nextjs": "^7.62.0",
@@ -21,7 +22,7 @@
     "autoprefixer": "^10.4.20",
     "clsx": "^2.0.0",
     "next": "15.0.3",
-    "next-auth": "4.24.7",
+    "next-auth": "^4.24.11",
     "next-themes": "^0.2.1",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-nesting": "^10.2.0",

@@ -1,14 +1,6 @@
 import dynamic from 'next/dynamic';
 
-const HomeComponent = dynamic(
-  () => import('../components/home/HomeComponent'),
-  {
-    ssr: false,
-    // loading: () => {
-    //   return <p>Component is Loading..., please Waite</p>;
-    // },
-  },
-);
+const HomeComponent = dynamic(() => import('../components/home/HomeComponent'));
 
 export default async function Home() {
   return (
