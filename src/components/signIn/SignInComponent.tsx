@@ -26,7 +26,7 @@ interface FormType {
  *  - session:
  */
 const SignInComponent = () => {
-  const { data: session, status, update } = useSession();
+  const { data: session, status } = useSession();
 
   const { register, handleSubmit } = useForm<FormType>({
     defaultValues: { email: '', password: '' },
@@ -80,6 +80,7 @@ const SignInComponent = () => {
             {...register('email')}
             id="Email"
             placeholder="email"
+            autoComplete="username"
           />
         </div>
 
@@ -94,6 +95,7 @@ const SignInComponent = () => {
             name="password"
             id="password"
             placeholder="password"
+            autoComplete="current-password"
           />
         </div>
 

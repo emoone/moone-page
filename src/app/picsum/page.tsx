@@ -1,4 +1,4 @@
-import ImgComponent from './imgComponent/ImgComponent';
+import PicsumComponent from '../../components/picsum/PicsumComponent';
 import { getPicsumPhotos } from '../api/picsumPhoto/getPicsumPhotos';
 
 export default async function Picsum() {
@@ -6,7 +6,7 @@ export default async function Picsum() {
 
   return (
     <main>
-      <ImgComponent imgLists={imgLists} />
+      <PicsumComponent imgLists={imgLists} />
     </main>
   );
 }

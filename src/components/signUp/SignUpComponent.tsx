@@ -79,7 +79,9 @@ const SignUpComponent = () => {
               },
             })}
             id="Email"
+            name="Email"
             placeholder="email"
+            autoComplete="username"
           />
           {errors.email?.message && <p>{errors.email.message}</p>}
         </div>
@@ -95,6 +97,7 @@ const SignUpComponent = () => {
             name="password"
             id="password"
             placeholder="password"
+            autoComplete="off"
           />
           {errors.password?.message && <p>{errors.password.message}</p>}
         </div>

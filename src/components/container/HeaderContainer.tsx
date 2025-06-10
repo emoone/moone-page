@@ -2,19 +2,29 @@
 
 import SwitchThemeBtn from '@/components/ui/SwitchThemeBtn';
 import cn from 'clsx';
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useCallback } from 'react';
 
 const MENU_LIST = [
   { name: 'Home', link: '/', query: null },
   { name: 'PicsumPhoto', link: '/picsum', query: null },
   { name: 'Dashbord', link: '/dashbord', query: null },
   { name: 'Post', link: '/dashbord/post', query: { slug: 'second' } },
-  { name: 'login', link: '/auth/login' },
+  // { name: 'login', link: '/auth/login' },
 ];
 /*********************************************************************************
  * 헤더 컨테이너
  *********************************************************************************/
 const HeaderContainer = () => {
+  const pathname = usePathname();
+  const { data: session } = useSession();
+
+  const logout = useCallback(async () => {
+    await signOut({ callbackUrl: '/' });
+  }, []);
+
   return (
     <header
       className={cn(
@@ -30,7 +40,7 @@ const HeaderContainer = () => {
           return (
             <Link
               className={cn('leading-[200%]', {
-                ['font-medium']: true,
+                ['font-medium']: pathname === c.link,
               })}
               href={{ pathname: c.link, query: c.query }}
               key={`${c.name}-${index}`}
@@ -39,6 +49,12 @@ const HeaderContainer = () => {
             </Link>
           );
         })}
+
+        {session ? (
+          <button onClick={logout}>Logout</button>
+        ) : (
+          <Link href="/auth/login">Login</Link>
+        )}
       </nav>
 
       <SwitchThemeBtn />

@@ -6,12 +6,12 @@ module.exports = {
   ],
 
   variants: {
-    gridTemplateColumns: ['responsive'],
+    
   },
 
   theme: {
     fontFamily: {
-      sans: ['Roboto', 'sans-serif'],
+      sans: ['Poppins', 'Roboto', 'Helvetica Neue', 'Apple SD Gothic Neo sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
 

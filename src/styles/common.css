@@ -1,11 +1,2 @@
 @layer base {
-  @media (prefers-color-scheme: dark) {
-    .imgLight {
-      display: none;
-    }
-
-    .imgDark {
-      display: unset;
-    }
-  }
 }
