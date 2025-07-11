@@ -32,8 +32,6 @@ const SignInComponent = () => {
     defaultValues: { email: '', password: '' },
   });
 
-  console.log('dddd', status);
-
   const onSubmit: SubmitHandler<FormType> = useCallback(async data => {
     // console.log('data', data, 'session', session, 'status', status);
     // update({ name: data.email, password: data.password });
@@ -46,7 +44,6 @@ const SignInComponent = () => {
     });
 
     console.log('submit', data);
-    console.log('login', res);
     if (res?.ok) {
       console.log('login', res);
     } else {
@@ -76,7 +73,7 @@ const SignInComponent = () => {
             Email:{' '}
           </label>
           <input
-            className={cn('p-[5px_10px] text-base block')}
+            className={cn('p-[5px_10px] text-base block ')}
             {...register('email')}
             id="Email"
             placeholder="email"
@@ -85,12 +82,12 @@ const SignInComponent = () => {
         </div>
 
         <div className="pwCon flex flex-col gap-y-[5px]">
-          <label className="font-medium" htmlFor="pwForm">
+          <label className="font-medium" htmlFor="password">
             password:{' '}
           </label>
           <input
             type="password"
-            className={cn('p-[5px_10px] text-base block')}
+            className={cn('p-[5px_10px] text-base block ')}
             {...register('password')}
             name="password"
             id="password"

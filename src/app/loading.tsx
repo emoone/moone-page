@@ -17,8 +17,9 @@ export default function Loading(
   return (
     <section
       id="loadingCon"
-      className="fixed top-0 left-0 flex items-center justify-center w-screen h-screen">
-      {/* <LoadingComponent /> */}
+      className="fixed top-0 left-0 flex items-center justify-center w-screen h-screen"
+    >
+      <LoadingComponent />
     </section>
   );
 }

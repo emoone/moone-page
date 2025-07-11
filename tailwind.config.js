@@ -47,6 +47,11 @@ module.exports = {
   variants: {
     extend: {
       borderWidth: ['hover'],
+      
+      colors: {
+        textPrimary: '--var(--text-primary)',
+        bgPrimary: '--var(--bg-primary)',
+      }
     },
   },
   corePlugins: { preflight: true }, // tailwind reset css 활성/비활성 옵션

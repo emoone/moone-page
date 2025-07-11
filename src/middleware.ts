@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 const PROTECTED_ROUTES = ['/picsum', '/dashbord'];
 
 // 인증된 사용자 제한
-const RESTRICTED_AUTH_ROUTES = ['/auth/login', '/auth/join'];
+const RESTRICTED_AUTH_ROUTES = ['/auth/login', '/auth/signUp'];
 
 export async function middleware(req: NextRequest) {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });

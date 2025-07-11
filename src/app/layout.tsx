@@ -47,7 +47,7 @@ export default function RootLayout({
       </head>
       <body>
         <ProviderContainer>
-          <div className="container max-w-3xl mx-auto">
+          <div className="container max-w-3xl mx-auto h-full">
             <HeaderContainer />
             {children}
           </div>

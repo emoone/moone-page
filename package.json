@@ -6,7 +6,7 @@
     "dev": "cp env/.env.dev .env && next dev -p 4444",
     "prod": "cp env/.env.prod .env && next dev -p 4444",
     "build": "next build",
-    "start": "next start -p 4444",
+    "start": "next start ",
     "lint": "next lint",
     "build-css": "tailwindcss build style.css -o css/style.css",
     "homepage": "https://emoone.github.io/moone-page/",

@@ -106,9 +106,8 @@
     display: block;
   }
 
-  body,
-  html {
-    @apply transition-all duration-150 text-textPrimary w-full h-full;
+  body {
+    @apply transition-all duration-150 text-textPrimary;
     @apply dark:from-slate-500 dark:to-slate-800 bg-gradient-to-r from-green-50 to-green-200;
   }
 
@@ -130,5 +129,10 @@
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+
+  input {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
   }
 }
